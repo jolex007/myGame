@@ -2,13 +2,14 @@
 #include <vector>
 #include "factories/Factory.h"
 #include "parser/Parser.h"
+#include "config.h"
 
 using std::vector;
 using std::string;
 
 int main()
 {
-    Parser::openUnitJson("/Users/jolex007/Documents/programming/myGame/gameinfo/units.json");
+    Parser::openUnitJson(static_cast<std::string>(PROJECT_SOURCE_DIR) + static_cast<std::string>("/gameinfo/units.json"));
 
     Factory rus_factory("Russian");
     Factory en_factory("England");

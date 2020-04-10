@@ -1,17 +1,17 @@
 [
     {
         "name" : "Builder",
-        "power" : 1,
+        "power" : 1.0,
         "steps" : 2
     },
     {
         "name" : "Archer",
-        "power" : 5,
+        "power" : 5.0,
         "steps" : 2
     },
     {
         "name" : "Swordman",
-        "power" : 7,
+        "power" : 7.0,
         "steps" : 2
     }
 ]

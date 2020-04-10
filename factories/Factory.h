@@ -10,6 +10,7 @@ private:
 
 public:
     /* Constructors */
+    Factory() = default;
     Factory(std::string);
 
     /* Create Units */
