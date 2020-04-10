@@ -15,7 +15,7 @@ int main()
     
     vector<std::shared_ptr<Unit> > units;
 
-    std::cout << "OK\n";
+    std::cout << "Factories created\n";
 
     units.push_back(rus_factory.createWarrior("Archer"));
     units.push_back(rus_factory.createWarrior("Swordman"));
@@ -24,7 +24,7 @@ int main()
     /* do next move */
 
     for (size_t i = 0; i < units.size(); i++) {
-        units[i]->next_move();
+        units[i]->nextMove();
     }
 
     return 0;
