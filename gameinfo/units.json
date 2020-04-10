@@ -1,0 +1,17 @@
+[
+    {
+        "name" : "Builder",
+        "power" : 1,
+        "steps" : 2
+    },
+    {
+        "name" : "Archer",
+        "power" : 5,
+        "steps" : 2
+    },
+    {
+        "name" : "Swordman",
+        "power" : 7,
+        "steps" : 2
+    }
+]
