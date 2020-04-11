@@ -1,6 +1,6 @@
 #include <vector>
 #include "gtest/gtest.h"
-#include "tests/test.cpp"
+#include "test.cpp"
 
 int main(int argc, char** argv)
 {

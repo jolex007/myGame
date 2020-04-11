@@ -5,7 +5,7 @@ class Worker : public Unit
 {
 public:
     /* Constructors and Destructor */
-    Worker(std::string, double, size_t);
+    Worker(const std::string&, double, size_t);
 
     virtual ~Worker() = default;
 
@@ -16,7 +16,7 @@ class Warrior : public Unit
 {
 public:
     /* Constructors and Destructor */
-    Warrior(std::string, double, size_t);
+    Warrior(const std::string&, double, size_t);
 
     virtual ~Warrior() = default;
 

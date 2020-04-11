@@ -17,7 +17,7 @@ protected:
 
 void FactoryTests::SetUp()
 {
-    factory = Factory("russian");
+    factory = Factory("Russian");
     Parser::openUnitJson(static_cast<std::string>(PROJECT_SOURCE_DIR) + static_cast<std::string>("/gameinfo/units.json"));
 }
 

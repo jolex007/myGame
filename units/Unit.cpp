@@ -15,5 +15,5 @@ std::string Unit::getUnitName() const
     return name;
 }
 
-Unit::Unit(std::string name, double power, size_t steps) : 
+Unit::Unit(const std::string& name, double power, size_t steps) : 
     name(name), power(power), steps(steps) {}

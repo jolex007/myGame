@@ -5,7 +5,7 @@ set (CMAKE_CXX_STANDARD_REQUIRED on)
 
 project(MyGame)
 
-configure_file(config.h.in config.h @ONLY)
+configure_file(src/config.h.in config.h @ONLY)
 
 find_package(nlohmann_json REQUIRED)
 find_package(GTest REQUIRED)
@@ -19,11 +19,15 @@ add_subdirectory(factories)
 add_subdirectory(units)
 add_subdirectory(parser)
 
-include_directories(factories units parser)
+include_directories(factories
+                    units
+                    parser
+                    src
+                    tests)
 
-add_executable(Main main.cpp)
+add_executable(Main src/main.cpp)
 
-add_executable(Test main_test.cpp)
+add_executable(Test tests/main_test.cpp)
 
 target_link_libraries(Main 
                       game_units

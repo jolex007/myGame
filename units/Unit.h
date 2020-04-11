@@ -10,7 +10,7 @@ protected:
     size_t steps;
 
 public:
-    Unit(std::string, double, size_t);
+    Unit(const std::string&, double, size_t);
 
     virtual std::string getUnitName() const;
     virtual double getPower() const;

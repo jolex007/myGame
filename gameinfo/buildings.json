@@ -1,11 +1,24 @@
-[
-    {
-        "name" : "TownHall"
-    },
-    {
-        "name" : "Mine"
-    },
-    {
-        "name" : "Barack"
-    }
-]
+{
+    "Russian" : [
+        {
+            "name" : "TownHall"
+        },
+        {
+            "name" : "Mine"
+        },
+        {
+            "name" : "Barack"
+        }
+    ],
+    "England" : [
+        {
+            "name" : "TownHall"
+        },
+        {
+            "name" : "Mine"
+        },
+        {
+            "name" : "Barack"
+        }
+    ]
+}

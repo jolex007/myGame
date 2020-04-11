@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
-#include "factories/Factory.h"
-#include "parser/Parser.h"
+#include "../factories/Factory.h"
+#include "../parser/Parser.h"
 #include "config.h"
 
 using std::vector;

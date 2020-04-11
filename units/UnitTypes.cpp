@@ -2,7 +2,7 @@
 
 /* Worker class */
 
-Worker::Worker(std::string name, double power, size_t steps) :
+Worker::Worker(const std::string& name, double power, size_t steps) :
     Unit(name, power, steps) {}
 
 void Worker::nextMove()
@@ -12,7 +12,7 @@ void Worker::nextMove()
 
 /* Warrior class */
 
-Warrior::Warrior(std::string name, double power, size_t steps) :
+Warrior::Warrior(const std::string& name, double power, size_t steps) :
     Unit(name, power, steps) {}
 
 void Warrior::nextMove()

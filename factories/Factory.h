@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-// #include "../units/Unit.h"
 #include "../units/UnitTypes.h"
 
 class Factory
@@ -11,9 +10,9 @@ private:
 public:
     /* Constructors */
     Factory() = default;
-    Factory(std::string);
+    Factory(const std::string&);
 
     /* Create Units */
-    std::shared_ptr<Unit> createWorker(std::string);
-    std::shared_ptr<Unit> createWarrior(std::string);
+    std::shared_ptr<Unit> createWorker(const std::string&);
+    std::shared_ptr<Unit> createWarrior(const std::string&);
 };
