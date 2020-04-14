@@ -15,15 +15,11 @@ include_directories (${GTEST_INCLUDE_DIRS})
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${MyGame_SOURCE_DIR}/bin)
 set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${MyGame_SOURCE_DIR}/lib)
 
+include_directories(.)
+
 add_subdirectory(factories)
 add_subdirectory(units)
 add_subdirectory(parser)
-
-include_directories(factories
-                    units
-                    parser
-                    src
-                    tests)
 
 add_executable(Main src/main.cpp)
 

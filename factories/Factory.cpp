@@ -1,6 +1,6 @@
 #include "Factory.h"
 
-#include "../parser/Parser.h"
+#include "parser/Parser.h"
 
 Factory::Factory(const std::string& nation) :
     nation(nation) {}
