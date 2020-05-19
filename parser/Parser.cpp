@@ -9,13 +9,6 @@ void Parser::openUnitJson(const std::string& file_path)
     inp.close();
 }
 
-void Parser::openBuildingJson(const std::string& file_path)
-{
-    std::ifstream inp(file_path);
-    inp >> Parser::building_file;
-    inp.close();
-}
-
 std::vector<std::string> Parser::getUnitNames(const std::string& nation_name)
 {
     std::vector<std::string> unit_names;
@@ -26,18 +19,6 @@ std::vector<std::string> Parser::getUnitNames(const std::string& nation_name)
     }
 
     return unit_names;
-}
-
-std::vector<std::string> Parser::getBuildingNames(const std::string& nation_name)
-{
-    std::vector<std::string> building_names;
-    building_names.reserve(building_file.size());
-
-    for (auto& building : building_file[nation_name]) {
-        building_names.push_back(building["name"]);
-    }
-
-    return building_names;
 }
 
 std::vector<std::string> Parser::getNationNames()
@@ -60,15 +41,4 @@ const json& Parser::getUnitParams(const std::string& nation_name, const std::str
     }
 
     throw std::runtime_error("filed an unknown unit");
-}
-
-const json& Parser::getBuildingParams(const std::string& nation_name, const std::string& building_name)
-{
-    for (auto& building : building_file[nation_name]) {
-        if (building["name"] == building_name) {
-            return building;
-        }
-    }
-    
-    throw std::runtime_error("filed an unknown building");
 }

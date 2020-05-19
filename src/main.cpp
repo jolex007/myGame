@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "factories/Factory.h"
+#include "creating/units/Factory.h"
 #include "parser/Parser.h"
 #include "config.h"
 
@@ -18,9 +18,8 @@ int main()
 
     std::cout << "Factories created\n";
 
-    units.push_back(rus_factory.createWarrior("Archer"));
-    units.push_back(rus_factory.createWarrior("Swordman"));
-    units.push_back(en_factory.createWorker("Builder"));
+    units.push_back(rus_factory.createUnit("Archer"));
+    units.push_back(rus_factory.createUnit("Swordman"));
 
     /* do next move */
 

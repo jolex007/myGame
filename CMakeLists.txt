@@ -17,9 +17,15 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${MyGame_SOURCE_DIR}/lib)
 
 include_directories(.)
 
-add_subdirectory(factories)
-add_subdirectory(units)
+# add_subdirectory(factories)
+# add_subdirectory(units)
+# add_subdirectory(parser)
+# add_subdirectory(buildings)
+
 add_subdirectory(parser)
+add_subdirectory(creating)
+add_subdirectory(field)
+add_subdirectory(game_module)
 
 add_executable(Main src/main.cpp)
 
@@ -27,14 +33,14 @@ add_executable(Test tests/main_test.cpp)
 
 target_link_libraries(Main 
                       game_units
-                      game_factories
                       game_info_parser
+                      game_buildings
                       nlohmann_json::nlohmann_json)
 
 target_link_libraries(Test
                       game_units
-                      game_factories
                       game_info_parser
+                      game_buildings
                       nlohmann_json::nlohmann_json
                       ${GTEST_LIBRARIES} Threads::Threads)
 

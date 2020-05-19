@@ -1,11 +1,6 @@
 {
     "Russian" : [
         {
-            "name" : "Builder",
-            "power" : 1.0,
-            "steps" : 2
-        },
-        {
             "name" : "Archer",
             "power" : 5.0,
             "steps" : 2
@@ -17,11 +12,6 @@
         }
     ],
     "England" : [
-        {
-            "name" : "Builder",
-            "power" : 1.0,
-            "steps" : 3
-        },
         {
             "name" : "Archer",
             "power" : 4.5,

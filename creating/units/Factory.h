@@ -1,6 +1,6 @@
 #pragma once
 #include <iostream>
-#include "units/UnitTypes.h"
+#include "creating/units/Unit.h"
 
 class Factory
 {
@@ -13,6 +13,5 @@ public:
     Factory(const std::string&);
 
     /* Create Units */
-    std::shared_ptr<Unit> createWorker(const std::string&);
-    std::shared_ptr<Unit> createWarrior(const std::string&);
+    std::shared_ptr<Unit> createUnit(const std::string&);
 };
