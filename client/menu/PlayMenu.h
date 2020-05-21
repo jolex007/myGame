@@ -9,7 +9,11 @@ class PlayMenu
 private:
     std::shared_ptr<Game> game;
     Coordinates pos;
-    // TODO: player_id
+    Coordinates selected;
+    bool is_selected;
+
+    void select();
+    void moveUnit(Coordinates, Coordinates);
 
 public:
     PlayMenu() = delete;

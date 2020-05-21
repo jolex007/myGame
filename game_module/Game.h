@@ -21,5 +21,6 @@ public:
 
     const FieldCell& getCell(Coordinates);
     size_t fieldSize() const;
-    
+    void moveUnit(Coordinates, Coordinates);
+    int getResource(Coordinates);
 };

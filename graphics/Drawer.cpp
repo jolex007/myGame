@@ -63,4 +63,41 @@ void Drawer::draw(std::vector<std::shared_ptr<PlayMenu>> vec_menu)
         }
         std::cout << std::endl;
     }
+
+    std::cout << std::endl;
+    for (int i = 0; i < 20; i++) {
+        std::cout << "-";
+    }
+    std::cout << std::endl;
+    std::cout << "Player number 1\n";
+    std::cout << "Selected: ";
+    if (vec_menu[0]->is_selected) {
+        std::cout << "x = " << vec_menu[0]->selected.x << " | y = " << vec_menu[0]->selected.y;
+    } else {
+        std::cout << "Nothing selected";
+    }
+    std::cout << std::endl;
+    std::cout << "Position: " << "x = " << vec_menu[0]->pos.x << " | y = " << vec_menu[0]->pos.y;
+    std::cout << std::endl;
+
+    std::cout << std::endl;
+    for (int i = 0; i < 20; i++) {
+        std::cout << "-";
+    }
+    std::cout << std::endl;
+    std::cout << "Player number 1\n";
+    std::cout << "Selected: ";
+    if (vec_menu[1]->is_selected) {
+        std::cout << "x = " << vec_menu[1]->selected.x << " | y = " << vec_menu[1]->selected.y;
+    } else {
+        std::cout << "Nothing selected";
+    }
+    std::cout << std::endl;
+    std::cout << "Position: " << "x = " << vec_menu[1]->pos.x << " | y = " << vec_menu[1]->pos.y;
+    std::cout << std::endl;
+
+    std::cout << std::endl;
+    for (int i = 0; i < 20; i++) {
+        std::cout << "-";
+    }
 }

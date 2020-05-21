@@ -21,4 +21,6 @@ public:
     void buildBuilding(Coordinates);
     int getResource(Coordinates);
     size_t fieldSize() const;
+
+    friend class Game;
 };

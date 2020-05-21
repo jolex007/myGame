@@ -21,7 +21,7 @@ Field::Field(const std::vector<std::vector<Relief>>& map)
 
 const FieldCell& Field::getCell(Coordinates coord)
 {
-    return cells[coord.y][coord.x]; // Maybe [x][y]
+    return cells[coord.y][coord.x];
 }
 
 void Field::moveUnit(Coordinates from, Coordinates to)
@@ -42,7 +42,7 @@ void Field::buildBuilding(Coordinates coord)
     if (cells[coord.y][coord.x].building != nullptr) {
         throw std::runtime_error("trying to build Building on another building");
     }
-    if (cells[coord.y][coord.x].building == nullptr) {
+    if (cells[coord.y][coord.x].unit == nullptr) {
         throw std::runtime_error("trying to build Building without unit");
     }
 

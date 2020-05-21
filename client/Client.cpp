@@ -38,7 +38,8 @@ bool Client::isFirstPlayerKey(Key key)
     if (key == Key::WKey ||
         key == Key::AKey ||
         key == Key::SKey ||
-        key == Key::DKey) {
+        key == Key::DKey || 
+        key == Key::SpaceKey) {
 
         return true;
     } else {

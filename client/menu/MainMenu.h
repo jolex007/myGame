@@ -9,7 +9,6 @@ class MainMenu
 {
 private:
     static const std::vector<std::string> main_choices;
-    
     static const std::vector<std::string> game_choices;
 
     bool is_playing;

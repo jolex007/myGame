@@ -16,5 +16,7 @@ public:
     FieldCell(Relief);
 
     friend class Field;
+    friend class Game;
+    friend class PlayMenu;
     friend class Drawer;
 };
