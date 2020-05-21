@@ -1,7 +1,7 @@
 #include "Field.h"
 #include "parser/Parser.h"
 
-Field::Field(std::vector<std::vector<Relief>> map)
+Field::Field(const std::vector<std::vector<Relief>>& map)
 {
     cells.resize(map.size());
 
@@ -17,34 +17,61 @@ Field::Field(std::vector<std::vector<Relief>> map)
     for (size_t i = 0; i < nations.size(); i++) {
         building_factories[nations[i]] = BuildingFactory(nations[i]);
     }
-
 }
 
-const FieldCell& Field::getCell(size_t x, size_t y)
+const FieldCell& Field::getCell(Coordinates coord)
 {
-    return cells[y][x]; // Maybe [x][y]
+    return cells[coord.y][coord.x]; // Maybe [x][y]
 }
 
-void Field::moveUnit(size_t from_x, size_t from_y, size_t to_x, size_t to_y)
+void Field::moveUnit(Coordinates from, Coordinates to)
 {
-    if (cells[from_y][from_x].unit == nullptr) {
+    if (cells[from.y][from.x].unit == nullptr) {
         throw std::runtime_error("trying to move nonexistent Unit");
     }
-    if (cells[to_y][to_x].unit != nullptr) {
+    if (cells[to.y][to.x].unit != nullptr) {
         throw std::runtime_error("moving Unit on another Unit");
     }
 
-    cells[to_y][to_x].unit = std::move(cells[from_y][from_x].unit);
-    cells[from_y][from_x].unit = nullptr;
+    cells[to.y][to.x].unit = std::move(cells[from.y][from.x].unit);
+    cells[from.y][from.x].unit = nullptr;
 }
 
-void Field::buildBuilding(size_t x, size_t y)
+void Field::buildBuilding(Coordinates coord)
 {
-    if (cells[y][x].building != nullptr) {
+    if (cells[coord.y][coord.x].building != nullptr) {
         throw std::runtime_error("trying to build Building on another building");
     }
-    if (cells[y][x].building == nullptr) {
+    if (cells[coord.y][coord.x].building == nullptr) {
         throw std::runtime_error("trying to build Building without unit");
     }
-    cells[y][x].building = building_factories[cells[y][x].unit->getNation()].createBuilding("MainHall");
+
+    cells[coord.y][coord.x].building = building_factories[cells[coord.y][coord.x].unit->getNation()].createBuilding("MainHall");
+}
+
+int Field::getResource(Coordinates coord)
+{
+    if (cells[coord.y][coord.x].unit == nullptr) {
+        throw std::runtime_error("trying to get coin without unit");
+    }
+    int result;
+
+    switch (cells[coord.y][coord.x].resources) {
+    case Relief::Ground:
+        throw std::runtime_error("trying to get coin, but there is no coin");
+        break;
+    
+    case Relief::Coin:
+        result = 1;
+        break;
+    };
+
+    cells[coord.y][coord.x].resources = Relief::Ground;
+
+    return result;
+}
+
+size_t Field::fieldSize() const 
+{
+    return cells.size();
 }

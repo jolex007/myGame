@@ -14,9 +14,11 @@ private:
 
 public:
     Field() = default;
-    Field(std::vector<std::vector<Relief>>);
+    Field(const std::vector<std::vector<Relief>>&);
 
-    const FieldCell& getCell(size_t, size_t);
-    void moveUnit(size_t, size_t, size_t, size_t);
-    void buildBuilding(size_t, size_t);
+    const FieldCell& getCell(Coordinates);
+    void moveUnit(Coordinates, Coordinates);
+    void buildBuilding(Coordinates);
+    int getResource(Coordinates);
+    size_t fieldSize() const;
 };

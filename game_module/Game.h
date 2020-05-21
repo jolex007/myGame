@@ -2,6 +2,7 @@
 
 #include "field/Field.h"
 #include "field/FieldCell.h"
+#include "field/MapProperties.h"
 
 class Game
 {
@@ -13,16 +14,12 @@ private:
     };
 
     Field field;
-    size_t pos_x;
-    size_t pos_y;
-    size_t player_move;
-    size_t players_number;
     GameStatus game_status;
 
 public:
-    Game() = delete;
-    Game(size_t);
+    Game();
 
-    void changePos(size_t, size_t);
-    const FieldCell& getCell();
+    const FieldCell& getCell(Coordinates);
+    size_t fieldSize() const;
+    
 };

@@ -26,6 +26,8 @@ add_subdirectory(parser)
 add_subdirectory(creating)
 add_subdirectory(field)
 add_subdirectory(game_module)
+add_subdirectory(client)
+add_subdirectory(graphics)
 
 add_executable(Main src/main.cpp)
 
@@ -35,12 +37,14 @@ target_link_libraries(Main
                       game_units
                       game_info_parser
                       game_buildings
+                      game_client
                       nlohmann_json::nlohmann_json)
 
 target_link_libraries(Test
                       game_units
                       game_info_parser
                       game_buildings
+                      game_client
                       nlohmann_json::nlohmann_json
                       ${GTEST_LIBRARIES} Threads::Threads)
 

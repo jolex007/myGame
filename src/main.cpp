@@ -3,29 +3,29 @@
 #include "creating/units/Factory.h"
 #include "parser/Parser.h"
 #include "config.h"
+#include "client/Handler.h"
+#include "client/Client.h"
+// #include "client/EventQueue.h"
+#include <thread>
 
 using std::vector;
 using std::string;
 
 int main()
 {
-    Parser::openUnitJson(static_cast<std::string>(PROJECT_SOURCE_DIR) + static_cast<std::string>("/gameinfo/units.json"));
+    std::cout << "Started" << std::endl;
 
-    Factory rus_factory("Russian");
-    Factory en_factory("England");
-    
-    vector<std::shared_ptr<Unit> > units;
+    Parser::openUnitJson(PROJECT_SOURCE_DIR + std::string("/gameinfo/units.json"));
+    Parser::openMapFile(PROJECT_SOURCE_DIR + std::string("/gameinfo/map.txt"));
 
-    std::cout << "Factories created\n";
+    Client client;
 
-    units.push_back(rus_factory.createUnit("Archer"));
-    units.push_back(rus_factory.createUnit("Swordman"));
-
-    /* do next move */
-
-    for (size_t i = 0; i < units.size(); i++) {
-        units[i]->nextMove();
-    }
+    std::thread handle_keyboard(Handler::handle);
+    std::thread client_working([&client](){
+        client.run();
+    });
+    handle_keyboard.join();
+    client_working.join();
 
     return 0;
 }

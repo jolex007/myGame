@@ -1,24 +1,21 @@
 #include "Game.h"
+#include "field/MapProperties.h"
+#include "parser/Parser.h"
 
-Game::Game(size_t players_number) :
-    players_number(players_number) 
+Game::Game() :
+    field(Parser::getMap())
 {
     game_status = GameStatus::GameBegin;
-    pos_x = 0;
-    pos_y = 0;
-    player_move = 0;
-
-    /* TODO: do smth with field */
+    /* do smth maybe */
+    game_status = GameStatus::Move;
 }
 
-
-void Game::changePos(size_t new_x, size_t new_y)
+const FieldCell& Game::getCell(Coordinates pos)
 {
-    pos_x = new_x;
-    pos_y = new_y;
+    return field.getCell(pos);
 }
 
-const FieldCell& Game::getCell()
+size_t Game::fieldSize() const
 {
-    return field.getCell(pos_x, pos_y);
+    return field.fieldSize();
 }

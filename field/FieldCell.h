@@ -16,4 +16,5 @@ public:
     FieldCell(Relief);
 
     friend class Field;
+    friend class Drawer;
 };

@@ -9,6 +9,20 @@ void Parser::openUnitJson(const std::string& file_path)
     inp.close();
 }
 
+void Parser::openMapFile(const std::string& file_path)
+{
+    std::ifstream inp(file_path);
+    size_t n;
+    inp >> n;
+    map_file.resize(n, std::vector<char>(n));
+    for (size_t y = 0; y < n; y++) {
+        for (size_t x = 0; x < n; x++) {
+            inp >> map_file[y][x];
+        }
+    }
+    inp.close();
+}
+
 std::vector<std::string> Parser::getUnitNames(const std::string& nation_name)
 {
     std::vector<std::string> unit_names;
@@ -30,6 +44,28 @@ std::vector<std::string> Parser::getNationNames()
     }
 
     return nations;
+}
+
+std::vector<std::vector<Relief>> Parser::getMap()
+{
+    size_t n = map_file.size();
+    std::vector<std::vector<Relief>> result_map(n, std::vector<Relief>(n));
+    
+    for (size_t y = 0; y < n; y++) {
+        for (size_t x = 0; x < n; x++) {
+            switch (map_file[y][x]) {
+            case '.':
+                result_map[y][x] = Relief::Ground;
+                break;
+
+            case '@':
+                result_map[y][x] = Relief::Coin;
+                break;
+            }
+        }
+    }
+
+    return result_map;
 }
 
 const json& Parser::getUnitParams(const std::string& nation_name, const std::string& unit_name)
